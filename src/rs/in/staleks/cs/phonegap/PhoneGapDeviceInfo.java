@@ -19,16 +19,37 @@
 
 package rs.in.staleks.cs.phonegap;
 
-import android.os.Bundle;
-import org.apache.cordova.*;
+import org.apache.cordova.Config;
+import org.apache.cordova.CordovaActivity;
 
-public class PhoneGapDeviceInfo extends CordovaActivity 
-{
+import android.os.Bundle;
+
+import com.google.analytics.tracking.android.Fields;
+import com.google.analytics.tracking.android.GoogleAnalytics;
+import com.google.analytics.tracking.android.MapBuilder;
+import com.google.analytics.tracking.android.Tracker;
+
+public class PhoneGapDeviceInfo extends CordovaActivity {
+	
+	private static Tracker mTracker;
+	
+	private static final String GA_PROPERTY_ID = "UA-36601455-2";
+	
+	
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         super.init();
+
+        mTracker = GoogleAnalytics.getInstance(this).getTracker(GA_PROPERTY_ID);
+        // Instead, send a single hit with session control to start the new session.
+        mTracker.send(MapBuilder
+          .createEvent("UX", "appstart", null, null)
+          .set(Fields.SESSION_CONTROL, "start")
+          .build()
+        );
+        
         // Set by <content src="index.html" /> in config.xml
         super.loadUrl(Config.getStartUrl());
         //super.loadUrl("file:///android_asset/www/index.html")
