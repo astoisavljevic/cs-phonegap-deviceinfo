@@ -21,17 +21,20 @@
             </div>
         </div>
 
-        <script id="deviceName" type="text/template">
-            <div class="device-property-item">
-                <div class="device-property-item-left">
-                    <span>Device name:</span>
+        <script id="template" type="text/template">
+            _.each(deviceProperties, function(item) {
+                <div class="device-property-item">
+                    <div class="device-property-item-left">
+                        <span><%= item.key %>:</span>
+                    </div>
+                    <div class="device-property-item-right">
+                        <span><%= item.value %></span>
+                    </div>
+                    <div class="clearfix"></div>
                 </div>
-                <div class="device-property-item-right">
-                    <span><%= deviceNamePlaceholder %></span>
-                </div>
-                <div class="clearfix"></div>
-            </div>
+            });
         </script>
+
         <script type="text/javascript" src="js/libs/jquery-2.0.3.min.js"></script>
         <script type="text/javascript" src="js/libs/underscore-min.js"></script>
         <script type="text/javascript" src="phonegap.js"></script>

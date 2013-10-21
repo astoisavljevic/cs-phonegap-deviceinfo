@@ -13,12 +13,18 @@ var app = {
         console.log('Received Event: ' + id);
 
         // find template section block
-        deviceNameTemplateText = $('#deviceName').html();
+        templateText = $('#template').html();
         // convert it to function
-        deviceNameTemplate = _.template(deviceNameTemplateText);
+        templateFunction = _.template(templateText);
         // parse deviceName
-        var deviceName1 = { deviceNamePlaceholder : 'MB525'};
-        parsedTemplate = deviceNameTemplate(deviceName1);
+        var deviceProperties = [
+            {key: 'Device Name', value: device.name},
+            {key: 'PhoneGap', value: device.phonegap},
+            {key: 'Device Platform', value: device.platform},
+            {key: 'Device UUID', value: device.uuid},
+            {key: 'OS Version', value: device.version}
+        ];
+        parsedTemplate = templateFunction(deviceProperties);
 
         $('#deviceProperties').html(parsedTemplate);
     }
