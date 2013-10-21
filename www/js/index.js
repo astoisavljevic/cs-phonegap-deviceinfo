@@ -20,6 +20,6 @@ var app = {
         var deviceName1 = { deviceNamePlaceholder : 'MB525'};
         parsedTemplate = deviceNameTemplate(deviceName1);
 
-        $('#deviceready').html(parsedTemplate);
+        $('#deviceProperties').html(parsedTemplate);
     }
 };
