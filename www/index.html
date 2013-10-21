@@ -8,11 +8,16 @@
         <title>Hello World</title>
     </head>
     <body>
-        <div class="app">
-            <h1>Coding Serbia - PhoneGap</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
+        <header class="header">
+            <div class="inner">
+                <a id="logo" class="brand" href="#"><img src="img/cs-logo.png" /></a>
+            </div>
+        </header>
+        <div class="content-wrapper">
+            <div id="app">
+                <h2>Device properties</h2>
+                <div id="deviceProperties">
+                </div>
             </div>
         </div>
 
@@ -24,7 +29,7 @@
                 <div class="device-property-item-right">
                     <span><%= deviceNamePlaceholder %></span>
                 </div>
-                <div style="clear: both;"></div>
+                <div class="clearfix"></div>
             </div>
         </script>
         <script type="text/javascript" src="js/libs/jquery-2.0.3.min.js"></script>
