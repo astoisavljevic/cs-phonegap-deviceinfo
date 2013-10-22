@@ -22,7 +22,7 @@
         </div>
 
         <script id="template" type="text/template">
-            _.each(deviceProperties, function(item) {
+            <% _.each(deviceProperties, function(item, key, list) { %>
                 <div class="device-property-item">
                     <div class="device-property-item-left">
                         <span><%= item.key %>:</span>
@@ -32,11 +32,11 @@
                     </div>
                     <div class="clearfix"></div>
                 </div>
-            });
+            <% }); %>
         </script>
 
         <script type="text/javascript" src="js/libs/jquery-2.0.3.min.js"></script>
-        <script type="text/javascript" src="js/libs/underscore-min.js"></script>
+        <script type="text/javascript" src="js/libs/underscore.js"></script>
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
